@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX</title>
+  <script>
+    function getDate(pageName) {
+      var req=new XMLHttpRequest();
+      req.open("get","http://127.0.0.1/"+pageName);
+      req.onload=function () {
+        var content=document.getElementById("content");
+        content.innerHTML=this.responseText;
+      };
+      req.send();
+    }
+  </script>
+  
+</head>
+<body onload="getDate('popular.htm');">
+      <div>
+        <span onclick="getDate('popular.htm');">熱門</span>
+        <span onclick="getDate('latest.html');">最新</span>
+      </div>
+　　　<hr/>
+      <div id="content"></div>
+
+
+</body>
+</html>
